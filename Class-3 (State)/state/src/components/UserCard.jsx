@@ -20,7 +20,7 @@ function UserCard() {
         padding: "20px",
         borderRadius: "8px",
         textAlign: "center",
-        backgroundColor: "dodgerblue",
+        backgroundColor:(User.gender=='Male'? "blue" : 'pink')
       }}
     >
       <img src={User.picture.large} />
