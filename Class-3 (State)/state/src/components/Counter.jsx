@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState , useEffect } from "react";
 
 function Counter() {
   const [count, setCount] = useState(0);
@@ -12,8 +12,11 @@ function Counter() {
   function decrement() {
     setCount(count - 1);
   }
-
-  console.log("Re-Rendered");
+  
+  useEffect(()=>{
+    console.log('Use Effects Runs')
+    document.title = `You clicked ${count} times`
+  })
 
   return (
     <div>
