@@ -12,11 +12,26 @@ function Counter() {
   function decrement() {
     setCount(count - 1);
   }
-  
+  // Basic useEffect (not genreally used )
   useEffect(()=>{
     console.log('Use Effects Runs')
     document.title = `You clicked ${count} times`
   })
+
+
+ // useEffect depenededent on State with dependency Array
+  // useEffect(()=>{
+  //   console.log('Use Effects Runs')
+  //   document.title = `You clicked ${count} times`
+  // }, [count])
+
+
+ // useEffect not depenedent on state only runs once at the end of render cycle
+
+  // useEffect(()=>{
+  //   console.log('Use Effects Runs')
+  //   document.title = `You clicked ${count} times`
+  // } , [])
 
   return (
     <div>
