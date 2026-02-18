@@ -1,10 +1,25 @@
-import React from 'react'
+import React from "react";
+import Banner from "./Banner";
+import MovieCard from "./MovieCard.jsx";
 
 function Movies() {
-    console.log("movies Renderd")
   return (
-     <h1 className='text-blue-500'>Movies Page</h1>
-  )
+    <div>
+      <Banner />
+      <div className="flex flex-wrap justify-around mt-8 gap-8 ">
+        <MovieCard />
+        <MovieCard />
+        <MovieCard />
+        <MovieCard />
+        <MovieCard />
+        <MovieCard />
+        <MovieCard />
+        <MovieCard />
+        <MovieCard />
+        <MovieCard />
+      </div>
+    </div>
+  );
 }
 
-export default Movies
+export default Movies;
