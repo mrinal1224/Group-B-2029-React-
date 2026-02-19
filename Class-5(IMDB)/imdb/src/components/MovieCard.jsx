@@ -1,9 +1,9 @@
 import React from 'react'
 
-function MovieCard() {
+function MovieCard({posterUrl , title}) {
   return (
-    <div className='w-62.5 h-100 bg-cover' style={{backgroundImage:`url(https://images-cdn.ubuy.co.in/68901f6ae49b8c404602f009-the-batman-movie-poster-glossy-quality.jpg)`}}>
-        
+    <div  className='w-62.5 h-100 bg-cover rounded-2xl' style={{backgroundImage:`url(https://image.tmdb.org/t/p/w500/${posterUrl})`}}>
+       <h4>{title}</h4>
     </div>
   )
 }
