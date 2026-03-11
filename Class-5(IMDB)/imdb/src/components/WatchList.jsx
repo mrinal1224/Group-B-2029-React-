@@ -5,7 +5,7 @@ console.log(genreids);
 
 function WatchList({ watchList, setWatchList }) {
   const [genreList, setGenreList] = useState([]);
-  const [currentGenre , setCurrentGenre] = useState('All Genres')
+  const [currentGenre, setCurrentGenre] = useState("All Genres");
 
   useEffect(() => {
     console.log(watchList);
@@ -14,7 +14,7 @@ function WatchList({ watchList, setWatchList }) {
 
     setGenreList(["All Genres", ...temp]);
 
-    console.log(genreList)
+    console.log(genreList);
 
     console.log(temp);
   }, [watchList]);
@@ -32,11 +32,19 @@ function WatchList({ watchList, setWatchList }) {
     <div className="m-8 overflow-hidden rounded-lg border border-gray-200 shadow-md">
       {/* {Genre Filter} */}
 
-      <div className="flex flex-wrap justify-center gap-3 my-4">
-        {genreList.map((genre)=>(
-            <button className="bg-blue-500 text-sm rounded-2xl px-4 py-2 ">{genre}</button>
+      <div className="flex m-8">
+        {genreList.map((genre) => (
+          <div
+            onClick={() => setCurrentGenre(genre)}
+            className={
+              currentGenre == genre
+                ? "mx-4 flex justify-center items-center bg-blue-400 h-12 w-[9rem] text-white font-bold border rounded-xl"
+                : "flex justify-center items-center h-12 w-[9rem] bg-gray-400/50 rounded-xl text-white font-bold mx-4"
+            }
+          >
+            {genre}
+          </div>
         ))}
-      
       </div>
 
       {/* {Search Bar} */}
