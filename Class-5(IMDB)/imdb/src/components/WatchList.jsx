@@ -1,4 +1,7 @@
 import React, { useEffect } from "react";
+import { genreids } from "../genres";
+
+console.log(genreids)
 
 function WatchList({ watchList, setWatchList }) {
   useEffect(() => {
@@ -64,7 +67,7 @@ function WatchList({ watchList, setWatchList }) {
               </td>
               <td className="px-6 py-4">
                 <span className="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2 py-1 text-xs font-semibold text-blue-600">
-                  {/* {movie.genre} */}
+                  {genreids[movie.genre_ids[0]]}
                 </span>
               </td>
               <td className="px-6 py-4">
