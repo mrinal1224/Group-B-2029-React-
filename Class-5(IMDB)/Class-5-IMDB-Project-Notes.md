@@ -486,4 +486,31 @@ https://image.tmdb.org/t/p/w500/${poster_path}
 
 ---
 
-*These notes follow the Class 5 IMDB (CinePulse) project. Use them alongside the code in `imdb/` to build the app step by step.*
+## Latest Updates (Post–Class 5 Commits)
+
+The project has been extended with features added in later commits. **Detailed step-by-step notes for these updates are in a separate file:**
+
+- **Class-5-IMDB-Project-Notes-Part2.md** — Continues from this document and covers the latest commits in detail.
+
+### Summary of what’s in Part 2
+
+| Feature | Brief description |
+|--------|---------------------|
+| **Lifting state** | Watchlist state moved to **App**; passed to **Movies** (add) and **WatchList** (display). |
+| **Pagination** | **pageNo** state in Movies; API `&page=${pageNo}`; **Pagination** component with prev/next; Font Awesome icons in **index.html**. |
+| **Add to watchlist** | **MovieCard** “+” button; **movieObject** and **handleAddToWatchList** passed from Movies; persistence via **localStorage**. |
+| **WatchList page** | Load watchlist from **localStorage** on mount; **table** (poster, name, ratings, popularity, genre); **genre filter** using **genres.js** (genre id → name). |
+| **Genre filter** | **genreList** derived from watchlist; **currentGenre** state; filter buttons; table filtered by selected genre. |
+
+### Commit timeline (reference)
+
+- `32ea040` — pagination done  
+- `64b9095` — set Active Genre  
+- `a733842` — make the filter work  
+- `afaeef2` — genre filter done  
+
+For full code snippets, data flow, and recommended fixes (e.g. immutability in addToWatchList, wiring Remove), see **Class-5-IMDB-Project-Notes-Part2.md**.
+
+---
+
+*Part 1: These notes follow the Class 5 IMDB (CinePulse) project. Use them alongside the code in `imdb/` to build the app step by step. For later features, use Part 2.*
