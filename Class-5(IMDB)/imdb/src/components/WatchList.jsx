@@ -55,13 +55,12 @@ function WatchList({ watchList, setWatchList }) {
                 </div>
               </td>
               <td className="px-6 py-4">
-                <div className="w-full bg-gray-200 rounded-full h-2 max-w-[100px]">
-                  <div
-                    className="bg-blue-600 h-2 rounded-full"
-                    style={{ width: `${movie.popularity}%` }}
-                  ></div>
+              
+                <div className="flex items-center gap-1">
+                  {movie.popularity}
                 </div>
-                <span className="text-xs mt-1 block">{movie.popularity}%</span>
+              
+
               </td>
               <td className="px-6 py-4">
                 <span className="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2 py-1 text-xs font-semibold text-blue-600">
