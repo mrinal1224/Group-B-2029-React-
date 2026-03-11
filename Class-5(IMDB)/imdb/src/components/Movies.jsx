@@ -4,7 +4,7 @@ import MovieCard from "./MovieCard.jsx";
 import axios from "axios";
 import Pagination from "./Pagination";
 
-function Movies({watchlist}) {
+function Movies({watchlist , handleAddToWatchList}) {
   const [movies, setMovies] = useState([]);
 
   const [pageNo, setPageNo] = useState(1);
@@ -41,7 +41,7 @@ function Movies({watchlist}) {
       <Banner />
       <div className="flex flex-wrap justify-around mt-8 gap-8  ">
         {movies.map(function (movieObj) {
-          return <MovieCard movieObject={movieObj} watchlist={watchlist} title={movieObj.original_title} posterUrl={movieObj.poster_path} />;
+          return <MovieCard movieObject={movieObj} watchlist={watchlist} title={movieObj.original_title} posterUrl={movieObj.poster_path} handleAddtoWatchList={handleAddToWatchList} />;
         })}
 
         <Pagination pageAhead={movePageAhead} pageBehind={movePageBehind}  pageNo={pageNo}/>
