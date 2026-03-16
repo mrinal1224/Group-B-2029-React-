@@ -1,12 +1,12 @@
+import Child2 from "./Child2"
 
 
 
-
-function Child1() {
+function Parent2() {
 
   return (
-    <div className='children'>Child1 </div>
+    <Child2/>
   )
 }
 
-export default Child1
+export default Parent2
