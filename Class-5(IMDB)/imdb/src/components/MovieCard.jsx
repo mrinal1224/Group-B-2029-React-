@@ -1,5 +1,11 @@
-function MovieCard({ posterUrl, title, watchlist, movieObject , handleAddtoWatchList }) {
+import { useContext } from "react";
+import { MovieContext } from "./MovieContext";
 
+
+
+
+function MovieCard({ posterUrl, title, movieObject , handleAddtoWatchList }) {
+   const {addToWatchList} = useContext(MovieContext)
   
   return (
     <div
@@ -11,7 +17,7 @@ function MovieCard({ posterUrl, title, watchlist, movieObject , handleAddtoWatch
       {/* IMDb Style Watchlist Button */}
       <button className="absolute top-0 left-0 m-2 flex items-center justify-center h-10 w-8 bg-black/60 text-white clip-path-ribbon hover:bg-yellow-400 hover:text-black transition-colors duration-200 cursor-pointer">
         <span
-          onClick={() => handleAddtoWatchList(movieObject)}
+          onClick={() => addToWatchList(movieObject)}
           className="text-2xl font-bold mb-1"
         >
           +
