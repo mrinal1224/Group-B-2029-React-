@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MoodSelector from "./components/MoodSelector";
 import Movies from "./components/Movies";
 import NavBar from "./components/NavBar";
@@ -10,18 +10,28 @@ import { MovieContext } from "./components/MovieContext";
 function App() {
   const [watchlist, setWatchList] = useState([]);
 
-  function addToWatchList(movieObj) {
-    // if the id already exists
-    // -> do nothing
-    watchlist.push(movieObj);
-    console.log(watchlist);
+  useEffect(() => {
+    const moviesFromLS = localStorage.getItem("movies");
+    if (!moviesFromLS) return;
+    try {
+      setWatchList(JSON.parse(moviesFromLS));
+    } catch {
+      // ignore invalid localStorage value
+    }
+  }, []);
 
-    localStorage.setItem("movies", JSON.stringify(watchlist));
+  function addToWatchList(movieObj) {
+    setWatchList((prev) => {
+      if (prev.some((m) => m.id === movieObj.id)) return prev;
+      const next = [...prev, movieObj];
+      localStorage.setItem("movies", JSON.stringify(next));
+      return next;
+    });
   }
 
   return (
     <>
-      <MovieContext.Provider value={{ watchlist, addToWatchList }}>
+      <MovieContext.Provider value={{ watchlist, addToWatchList, setWatchList }}>
         <BrowserRouter>
           <NavBar />
 
